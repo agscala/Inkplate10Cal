@@ -32,6 +32,7 @@ class GcalModule:
         return datetime_str
 
     def get_events(self, currDate, calendars, calStartDatetime, calEndDatetime, displayTZ, numDays):
+        # self.calHelper.list_calendars()
         eventList = self.calHelper.retrieve_events(calendars, calStartDatetime, calEndDatetime, displayTZ)
 
         # check if event stretches across multiple days

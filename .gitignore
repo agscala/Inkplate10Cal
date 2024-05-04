@@ -1,3 +1,7 @@
+# Google credentials
+gcal/credentials.json
+gcal/token.pickle
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

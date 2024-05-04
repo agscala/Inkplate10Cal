@@ -10,6 +10,23 @@ import string
 import datetime
 
 
+def to_f(temp_c):
+    return temp_c * (9/5) + 32
+
+def forecast_to_f(day):
+    day["temp"]["day"] = to_f(day["temp"]["day"])
+    day["temp"]["min"] = to_f(day["temp"]["min"])
+    day["temp"]["max"] = to_f(day["temp"]["max"])
+    day["temp"]["eve"] = to_f(day["temp"]["eve"])
+    day["temp"]["night"] = to_f(day["temp"]["night"])
+    day["temp"]["morn"] = to_f(day["temp"]["morn"])
+
+    day["feels_like"]["day"] = to_f(day["feels_like"]["day"])
+    day["feels_like"]["night"] = to_f(day["feels_like"]["night"])
+    day["feels_like"]["eve"] = to_f(day["feels_like"]["eve"])
+    day["feels_like"]["morn"] = to_f(day["feels_like"]["morn"])
+    return day
+
 class OWMModule:
     def __init__(self):
         self.logger = logging.getLogger('maginkdash')
@@ -20,10 +37,15 @@ class OWMModule:
         response = requests.get(url)
         data = json.loads(response.text)
         curr_weather = data["current"]
+        curr_weather["temp"] = to_f(curr_weather["temp"])
+        curr_weather["feels_like"] = to_f(curr_weather["feels_like"])
+        # print(json.dumps(curr_weather, indent=2))
+
         hourly_forecast = data["hourly"]
         # print(json.dumps(curr_weather, indent=2))
         daily_forecast = data["daily"]
-        # print(json.dumps(forecast, indent=2))
+        daily_forecast = list(map(forecast_to_f, daily_forecast))
+        # print(json.dumps(daily_forecast, indent=2))
         results = {"current_weather": curr_weather, "hourly_forecast": hourly_forecast, "daily_forecast": daily_forecast}
         return results
 

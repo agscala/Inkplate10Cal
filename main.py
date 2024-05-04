@@ -14,7 +14,7 @@ from datetime import datetime as dt
 from pytz import timezone
 from gcal.gcal import GcalModule
 from owm.owm import OWMModule
-from oai.oai import OAIModule
+# from oai.oai import OAIModule
 from render.render import RenderHelper
 
 
@@ -57,8 +57,9 @@ if __name__ == '__main__':
         currDate, calendars, calStartDatetime, calEndDatetime, displayTZ, numCalDaysToShow)
 
     # Retrieve Random Fact from OpenAI
-    oaiModule = OAIModule()
-    topic = oaiModule.get_random_fact(currDate, openai_api_key)
+    # oaiModule = OAIModule()
+    # topic = oaiModule.get_random_fact(currDate, openai_api_key)
+    topic = {"title": "", "text": ""}
 
     # Render Dashboard Image
     renderService = RenderHelper(imageWidth, imageHeight, rotateAngle)
