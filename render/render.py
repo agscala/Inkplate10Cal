@@ -116,7 +116,7 @@ class RenderHelper:
             # current_weather_temp=round(current_weather["temp"]),
             current_weather_text=string.capwords(hourly_forecast[1]["weather"][0]["description"]),
             current_weather_id=hourly_forecast[1]["weather"][0]["id"],
-            current_weather_temp=round(hourly_forecast[1]["temp"]),
+            current_weather_temp=str(round(daily_forecast[0]["temp"]["max"])),
             today_weather_id=daily_forecast[0]["weather"][0]["id"],
             tomorrow_weather_id=daily_forecast[1]["weather"][0]["id"],
             dayafter_weather_id=daily_forecast[2]["weather"][0]["id"],

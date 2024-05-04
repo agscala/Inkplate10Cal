@@ -1,8 +1,8 @@
 {
   "displayTZ": "America/Detroit",
-  "calendars": ["family14934115505715926349@group.calendar.google.com"],
+  "calendars": [""],
   "numCalDaysToShow": 13,
-  "owm_api_key": "d67ab720ad5bb9312d2cbc5965852484",
+  "owm_api_key": "",
   "lat": 22.3193,
   "lon": -83.1370819,
   "imageWidth": 1200,
